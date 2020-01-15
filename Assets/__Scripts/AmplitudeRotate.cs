@@ -6,6 +6,7 @@ public class AmplitudeRotate : MonoBehaviour
 {
     public AudioPeer _audioPeer;
     public float _rotationSpeed;
+    public int _direction;
 
     void Start()
     {
@@ -15,6 +16,6 @@ public class AmplitudeRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(Vector3.up, (AudioPeer._amplitudeBuffer * Time.deltaTime * _rotationSpeed));
+        this.transform.Rotate(Vector3.up, (AudioPeer._amplitudeBuffer * Time.deltaTime * _rotationSpeed * _direction));
     }
 }

@@ -19,6 +19,8 @@ public class AudioPeer : MonoBehaviour
     float _amplitudeHighest = 0;
     public float _audioProfile;
 
+    public AmplitudeRotate rotator;
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -55,6 +57,7 @@ public class AudioPeer : MonoBehaviour
         if (currentAmplitude > _amplitudeHighest)
         {
             _amplitudeHighest = currentAmplitude;
+            //rotator._direction *= -1;
         }
         _amplitude = currentAmplitude / _amplitudeHighest;
         _amplitudeBuffer = currentAmplitude / _amplitudeHighest;
