@@ -7,14 +7,17 @@ public class AmplitudeFlash : MonoBehaviour
     public AudioPeer _audioPeer;
     public Gradient _colorGrad;
     public float _colorMultiplier;
+    public Vector3 _targetScale;
 
     private Color _startColor, _endColor;
     private Color _emissionColor;
+    private Vector3 _scale;
     private Renderer rend;
     void Start()
     {
         _startColor = new Color(0, 0, 0, 0);
         _endColor = new Color(0, 0, 0, 1);
+        _scale = transform.localScale;
         rend = GetComponent<Renderer>();
     }
 
@@ -27,5 +30,7 @@ public class AmplitudeFlash : MonoBehaviour
         rend.material.SetColor("_EmissionColor", colorLerp);
         colorLerp = Color.Lerp(_startColor, _endColor, AudioPeer._amplitudeBuffer);
         rend.material.SetColor("_Color", colorLerp);
+
+        transform.localScale = Vector3.Lerp(_scale, _targetScale, AudioPeer._amplitudeBuffer);
     }
 }
