@@ -24,13 +24,13 @@ public class AmplitudeFlash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _emissionColor = _colorGrad.Evaluate(AudioPeer._amplitude);
+        _emissionColor = _colorGrad.Evaluate(_audioPeer._amplitude);
 
-        Color colorLerp = Color.Lerp(_startColor, _emissionColor * _colorMultiplier, AudioPeer._amplitudeBuffer);
+        Color colorLerp = Color.Lerp(_startColor, _emissionColor * _colorMultiplier, _audioPeer._amplitudeBuffer);
         rend.material.SetColor("_EmissionColor", colorLerp);
-        colorLerp = Color.Lerp(_startColor, _endColor, AudioPeer._amplitudeBuffer);
+        colorLerp = Color.Lerp(_startColor, _endColor, _audioPeer._amplitudeBuffer);
         rend.material.SetColor("_Color", colorLerp);
 
-        transform.localScale = Vector3.Lerp(_scale, _targetScale, AudioPeer._amplitudeBuffer);
+        transform.localScale = Vector3.Lerp(_scale, _targetScale, _audioPeer._amplitudeBuffer);
     }
 }

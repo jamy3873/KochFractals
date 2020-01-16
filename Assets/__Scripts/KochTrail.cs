@@ -87,7 +87,7 @@ public class KochTrail : KochGenerator
 
     void Movement()
     {
-        _lerpPosSpeed = Mathf.Lerp(_speedMinMax.x, _speedMinMax.y, AudioPeer._amplitude);
+        _lerpPosSpeed = Mathf.Lerp(_speedMinMax.x, _speedMinMax.y, _audioPeer._amplitude);
         for (int i = 0; i < _trail.Count; i++)
         {
             _distanceSnap = Vector3.Distance(_trail[i].go.transform.localPosition, _trail[i].targetPosition);
@@ -131,15 +131,15 @@ public class KochTrail : KochGenerator
     {
         for (int i = 0; i < _initiatorPointAmount; i++)
         {
-            Color colorLerp = Color.Lerp(_startColor, _trail[i].emissionColor * _colorMultiplier, AudioPeer._audioBand[_audioBand[i]]);
+            Color colorLerp = Color.Lerp(_startColor, _trail[i].emissionColor * _colorMultiplier, _audioPeer._audioBand[_audioBand[i]]);
             _trail[i].trail.material.SetColor("_EmissionColor", colorLerp);
-            colorLerp = Color.Lerp(_startColor, _endColor, AudioPeer._audioBand[_audioBand[i]]);
+            colorLerp = Color.Lerp(_startColor, _endColor, _audioPeer._audioBand[_audioBand[i]]);
             _trail[i].trail.material.SetColor("Color", colorLerp);
 
-            float widthLerp = Mathf.Lerp(_widthMinMax.x, _widthMinMax.y, AudioPeer._audioBandBuffer[_audioBand[i]]);
+            float widthLerp = Mathf.Lerp(_widthMinMax.x, _widthMinMax.y, _audioPeer._audioBandBuffer[_audioBand[i]]);
             _trail[i].trail.widthMultiplier = widthLerp;
 
-            float timeLerp = Mathf.Lerp(_trailTimeMinMax.x, _trailTimeMinMax.y, AudioPeer._audioBandBuffer[_audioBand[i]]);
+            float timeLerp = Mathf.Lerp(_trailTimeMinMax.x, _trailTimeMinMax.y, _audioPeer._audioBandBuffer[_audioBand[i]]);
             _trail[i].trail.time = timeLerp;
         }
     }

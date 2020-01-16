@@ -12,10 +12,10 @@ public class AudioPeer : MonoBehaviour
     float[] _bufferDecrease = new float[8];
 
     float[] _freqBandHighest = new float[8];
-    public static float[] _audioBand = new float[8];
-    public static float[] _audioBandBuffer = new float[8];
+    public float[] _audioBand = new float[8];
+    public float[] _audioBandBuffer = new float[8];
 
-    public static float _amplitude, _amplitudeBuffer;
+    public float _amplitude, _amplitudeBuffer;
     float _amplitudeHighest = 0;
     public float _audioProfile;
 

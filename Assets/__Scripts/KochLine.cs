@@ -48,8 +48,8 @@ public class KochLine : KochGenerator
     {
         if (_matInstance)
         {
-            _color = _colorGrad.Evaluate(AudioPeer._audioBandBuffer[_audioBand[0]] * _scaleGradient);
-            _matInstance.SetColor("_EmissionColor", _color * AudioPeer._amplitudeBuffer * _emissionMultiplier);
+            _color = _colorGrad.Evaluate(_audioPeer._audioBandBuffer[_audioBand[0]] * _scaleGradient);
+            _matInstance.SetColor("_EmissionColor", _color * _audioPeer._amplitudeBuffer * _emissionMultiplier);
         }
         
 
@@ -60,11 +60,11 @@ public class KochLine : KochGenerator
             {
                 if (_useBuffer)
                 {
-                    _lerpAudio[i] = AudioPeer._audioBandBuffer[_audioBand[i]];
+                    _lerpAudio[i] = _audioPeer._audioBandBuffer[_audioBand[i]];
                 }
                 else
                 {
-                    _lerpAudio[i] = AudioPeer._audioBand[_audioBand[i]];
+                    _lerpAudio[i] = _audioPeer._audioBand[_audioBand[i]];
                 }
                 for (int j = 0; j < (_position.Length - 1) / _initiatorPointAmount; j++)
                 {
